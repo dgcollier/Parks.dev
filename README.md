@@ -1,0 +1,1 @@
+This is a set of files for a Codeup bootcamp exercise involving PHP and MySQL database.
