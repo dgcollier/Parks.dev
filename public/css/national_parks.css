@@ -1,0 +1,91 @@
+a,
+form {
+    text-align: center;
+}
+
+body {
+    background-image: url("../img/yosemite.jpg");
+}
+
+td {
+    font-size: 16px;
+    min-width: 10%;
+}
+
+th {
+    font-size: 18px;
+}
+
+.input {
+    width: 35%;
+    min-width: 374px;
+}
+
+.table {
+    margin: 25px auto;
+    margin-bottom: 25px;
+    max-width: 75%;     
+}
+
+#add {
+    width: 50%;
+}
+
+#addPark {
+    clear: both;
+}
+
+#descrInput {
+    width: 50%;
+}
+
+#descrInput,
+.input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+#errorMessages {
+    text-align: center;
+    text-shadow: 2px 2px #f5f5f5;
+    color: #ff0033;
+    /*449d44*/
+}
+
+#errors {
+    margin-top: 30px;
+}
+
+#natParks {
+    font-size: 3em;
+    margin: 25px;
+    margin-left: 12.5%;
+}
+
+#next {
+    float: right;
+    margin-right: 12.5%;
+}
+
+#orders {
+    text-align: center;
+    color: #f5f5f5;
+    margin: auto;
+    width: 25%;
+}
+
+#orders > a {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #f5f5f5;
+}
+
+#parkForm > h2 {
+    color: #f5f5f5;
+}
+
+#prev {
+    float: left;
+    margin-left: 12.5%;
+}
