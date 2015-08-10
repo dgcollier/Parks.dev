@@ -30,31 +30,55 @@ class Input
         return trim(htmlspecialchars(strip_tags($value)));
     }
 
-    public static function getString($key)
+    public static function getString($key, $min, $max)
     {
         $value = static::get($key);
 
         if (!isset($value)) {
-            throw new Exception('Input was empty.');
+            throw new OutOfRangeException('Input was empty.');
         }
 
-        if(!is_string($value) || is_numeric($value)) {
-            throw new Exception('Input should be a text string.');
+        if (!is_string($value)) {
+            throw new InvalidArugmentException('Input should be a text string.');
+        }
+
+        if (is_numeric($value)) {
+            throw new DomainException('Input should be a text string.');
+        }
+
+        if (!is_numeric($min) || !is_numeric($max)) {
+            throw new InvalidArugmentException('$min and $max should be numeric values.');
+        }
+
+        if (strlen($value) < $min || strlen($value) > $max) {
+            throw new LengthException('Input must be between ' . $min . ' and ' . $max . ' characters.');
         }
 
         return $value;
     }
 
-    public static function getNumber($key)
+    public static function getNumber($key, $min, $max)
     {
         $value = str_replace(',', '', static::get($key));
 
-        if (!isset($value)) {
-            throw new Exception('Input was empty.');
+        if (empty($value)) {
+            throw new OutofRangeException('Input was empty.');
         }
 
-        if(!is_numeric($value)) {
-            throw new Exception('Input should be numeric.');
+        if (!is_numeric($value)) {
+            throw new InvalidArgumentException('Input should be numeric.');
+        }
+
+        if (is_string(floatval($value))) {
+            throw new DomainException('Input should be numeric.');
+        }
+
+        if (!is_numeric($min) || !is_numeric($max)) {
+            throw new InvalidArugmentException('$min and $max should be numeric values.');
+        }
+
+        if ($value < $min || $value > $max) {
+            throw new RangeException('Input must be between ' . $min . ' and ' . $max . '.');
         }
 
         return $value;
