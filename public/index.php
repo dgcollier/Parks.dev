@@ -60,7 +60,7 @@
         <!-- Error Message Printout -->
         <div id="errors">
             <?php foreach ($errors as $error) : ?>
-                <h3 id="errorMessages"><?= $error; ?></h3>
+                <p id="errorMessages"><?= $error; ?></p>
             <?php endforeach; ?>
         </div>
 
